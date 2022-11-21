@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://troll.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/iso-64x64.tres" type="TileSet" id=3]
+[ext_resource path="res://sprites/map.gd" type="Script" id=4]
+
+[node name="Dungeon" type="Node2D"]
+
+[node name="Ground Layer 0" type="TileMap" parent="."]
+mode = 1
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 64, 32 )
+format = 1
+script = ExtResource( 4 )
+
+[node name="Walls" type="TileMap" parent="."]
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 64 )
+cell_tile_origin = 1
+cell_y_sort = true
+centered_textures = true
+format = 1
+
+[node name="Troll" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 368.142, 347.007 )
